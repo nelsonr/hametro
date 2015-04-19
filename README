@@ -1,0 +1,7 @@
+Install Composer (run inside project folder):
+
+$ curl -sS https://getcomposer.org/installer | php
+
+Install dependencies:
+
+$ php composer.phar install
