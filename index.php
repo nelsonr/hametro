@@ -27,7 +27,8 @@ $line_status = array(
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="apple-touch-icon@2x.png" />
-	<link rel="apple-touch-icon" size="180x180" href="apple-touch-icon@3x.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon@3x.png" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 
 	<style>
 		html, body {
