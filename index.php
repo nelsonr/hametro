@@ -56,16 +56,6 @@ $line_status = array(
 		.green  { background-color: #00A9A6; }
 		.red    { background-color: #ED2B74; }
 
-		@media only screen and (max-width: 320px) {
-			.row {
-				flex-direction: column;
-			}
-
-			.line {
-				height: 25vh;
-			}
-		}
-
 		@media only screen and (orientation: portrait) {
 			.row {
 				flex-direction: column;
