@@ -38,10 +38,12 @@ $line_status = array(
 		}
 
 		.row {
+			display: -webkit-flex;
 			display: flex;
 		}
 
 		.line {
+			-webkit-flex: 1;
 			flex: 1;
 			height: 50vh;
 			color: #FFF;
@@ -58,6 +60,7 @@ $line_status = array(
 
 		@media only screen and (orientation: portrait) {
 			.row {
+				-webkit-flex-direction: column;
 				flex-direction: column;
 			}
 
