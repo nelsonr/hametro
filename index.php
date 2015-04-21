@@ -9,13 +9,13 @@ $response = $http->get('http://app.metrolisboa.pt/status/estado_Linhas.php');
 // Parse status page
 $dom = new PHPHtmlParser\Dom();
 $dom->load($response->getBody());
-$text_status = $dom->find('li');
+$text_status = $dom->find('ul');
 
 $line_status = array(
-	'yellow' => $text_status[0]->text,
-	'blue'   => $text_status[1]->text,
-	'green'  => $text_status[2]->text,
-	'red'    => $text_status[3]->text,
+	'yellow' => array('message' => $text_status[0]->find('li')->text, 'status' => $text_status[0]->getAttribute('class')),
+	'blue' 	 => array('message' => $text_status[1]->find('li')->text, 'status' => $text_status[1]->getAttribute('class')),
+	'green'  => array('message' => $text_status[2]->find('li')->text, 'status' => $text_status[2]->getAttribute('class')),
+	'red' 	 => array('message' => $text_status[3]->find('li')->text, 'status' => $text_status[3]->getAttribute('class')),
 );
 
 ?>
@@ -48,9 +48,12 @@ $line_status = array(
 			height: 50vh;
 			color: #FFF;
 			font-size: 2em;
-			padding-top: 1em;
-			padding-left: 1em;
+			padding: 2rem;
 			box-sizing: border-box;
+		}
+
+		.comperturbacao {
+			font-size: 1em;
 		}
 
 		.yellow { background-color: #FDB813; }
@@ -73,13 +76,13 @@ $line_status = array(
 <body>
 	<main>
 		<div class="row">
-			<div class="line yellow"><?php echo $line_status['yellow']; ?></div>
-			<div class="line blue"><?php echo $line_status['blue']; ?></div>
+			<div class="line yellow <?php echo $line_status['yellow']['status']; ?>"><?php echo $line_status['yellow']['message']; ?></div>
+			<div class="line blue <?php echo $line_status['yellow']['status']; ?>"><?php echo $line_status['blue']['message']; ?></div>
 		</div>
 
 		<div class="row">
-			<div class="line green"><?php echo $line_status['green']; ?></div>
-			<div class="line red"><?php echo $line_status['red']; ?></div>
+			<div class="line green <?php echo $line_status['yellow']['status']; ?>"><?php echo $line_status['green']['message']; ?></div>
+			<div class="line red <?php echo $line_status['yellow']['status']; ?>"><?php echo $line_status['red']['message']; ?></div>
 		</div>
 	</main>
 </body>
